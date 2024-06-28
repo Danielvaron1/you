@@ -14,7 +14,7 @@ const TextFromApi = ({onGenerateNew}) => {
         setError(null);
         setTexto('');
 
-        fetch('https://zenquotes.io/api/random')
+        fetch('https://api.quotable.io/random')
             .then(response => {
                 console.log(response);
                 if (!response.ok) {
@@ -24,8 +24,8 @@ const TextFromApi = ({onGenerateNew}) => {
             })
             .then(data => {
                 if (data && data.length > 0) {
-                    setText(`${data[0].q}`);
-                    setAutor(`~ ${data[0].a}`);
+                    setText(data.content);
+                    setAutor(`~ ${data.author}`);
                 } else {
                     throw new Error('Respuesta de la API no válida');
                 }
