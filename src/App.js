@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import ImageJs from "./components/ImageJS";
+import TextFromApi from "./components/Motivation";
+import {useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const getRandomImageId = () => `${Math.floor(Math.random() * 126) + 1}.jpg`;
+
+    const [imageId, setImageId] = useState(getRandomImageId());
+
+    const changeImageId = () => {
+        // Lógica para cambiar el id de la imagen, puedes generar un nuevo id aquí
+        const newId = getRandomImageId();
+        setImageId(newId);
+    };
+
+      return (
+        <div className="App">
+          <header className="App-header">
+            <h1 className="h1class">Your Daily Motivation</h1>
+            <ImageJs id={imageId}/>
+            <TextFromApi onGenerateNew={changeImageId}/>
+          </header>
+        </div>
+      );
 }
 
 export default App;

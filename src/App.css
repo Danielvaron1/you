@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.h1class{
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 250%;
+  font-style: normal;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +22,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: rgb(74,9,121);
+  background: linear-gradient(180deg, rgba(74,9,121,1) 0%, rgba(0,212,255,0) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
